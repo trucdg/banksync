@@ -3,12 +3,19 @@
 {% block title %}Persons{% endblock %}
 
 {% block content %}
-<h1>Users</h1>
-<ul class="list-group">
-    {% for person in persons %}
-        <li class="list-group-item">
-            <a href="{% url 'person_detail' person.id %}">{{ person.first_name }} {{ person.last_name }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-4">
+    <h1 class="text-center">Users</h1>
+    <ul class="list-group mt-4">
+        {% for person in persons %}
+            <li class="list-group-item">
+                <a href="{% url 'person_detail' person.id %}" class="person-link">
+                    {{ person.first_name }} {{ person.last_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if persons|length == 0 %}
+        <p class="text-center mt-4">No users found. Add a new user to get started!</p>
+    {% endif %}
+</div>
 {% endblock %}

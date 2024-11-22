@@ -59,3 +59,47 @@ body {
     font-size: 1.25rem;
     color: #dcdcdc;
 }
+
+/* User List Page*/
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ffffff; /* Pastel blue */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.list-group-item {
+    background-color: #1e1e30; 
+    border: 1px solid #0f3460;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #16213e; /* Darker background on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0px 4px 10px rgba(163, 196, 243, 0.2); /* Soft pastel glow */
+}
+
+.person-link {
+    color: #eaeaea; 
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.person-link:hover {
+    color: #f4dc9f; 
+    text-decoration: none;
+}
+
+.text-center p {
+    color: #d1d1e9; 
+    font-style: italic;
+}
