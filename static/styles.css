@@ -1,7 +1,61 @@
-p {
-    color: blue;
+/* Global styles */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-    background-color: aqua;
+/* Navbar */
+.navbar-dark .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: #f8f9fa;
+}
+
+.navbar-dark .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar-dark .nav-link:hover {
+    color: #6671d9;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #1669bced;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5;
+}
+
+.btn-secondary {
+    background-color: #343a40;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #23272b;
+}
+
+/* Home Page */
+.text-center {
+    padding: 3rem 1rem;
+}
+
+.display-4 {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #dcdcdc;
 }

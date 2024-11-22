@@ -1,9 +1,14 @@
-<!-- bankrec/templates/bankrec/home.html -->
+{% extends "bankrec/base.html" %}
 
-{% extends 'bankrec/base.html' %}
+{% block title %}Welcome to BankSync{% endblock %}
 
 {% block content %}
-
-<p> Hello in Home</p>
-
+<div class="text-center mt-5">
+    <h1 class="display-4">Welcome to BankSync</h1>
+    <p class="lead">Your trusted application for financial insights and management.</p>
+    <div class="mt-4">
+        <a href="{% url 'business_list' %}" class="btn btn-primary btn-lg me-3">View Businesses</a>
+        <a href="{% url 'person_list' %}" class="btn btn-secondary btn-lg">Manage Persons</a>
+    </div>
+</div>
 {% endblock %}

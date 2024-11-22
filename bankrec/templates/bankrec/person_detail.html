@@ -1,0 +1,18 @@
+{% extends "bankrec/base.html" %}
+
+{% block title %}{{ person.first_name }} {{ person.last_name }}{% endblock %}
+
+{% block content %}
+<h1>{{ person.first_name }} {{ person.last_name }}</h1>
+<p>Email: {{ person.email }}</p>
+<p>Address: {{ person.address }}</p>
+<p>Role: {{ person.get_role_display }}</p>
+<h2>Businesses</h2>
+<ul>
+    {% for business in person.businesses.all %}
+        <li>
+            <a href="{% url 'business_detail' business.id %}">{{ business.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

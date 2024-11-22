@@ -10,7 +10,7 @@ class Person(models.Model):
     - accountant: can view and generate reports for linked individuals
     """
 
-    ROLES = ["individual", "accountant"]
+    ROLES = [("individual", "Individual"), ("accountant", "Accountant")]
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(blank=True, null=True)
@@ -96,7 +96,11 @@ class TransactionEntry(models.Model):
     represents a financial transaction record
     """
 
-    PAYMENT_METHODS = ["credit", "debit", "check"]
+    PAYMENT_METHODS = [
+        ("credit", "Credit"),
+        ("debit", "Debit"),
+        ("check", "Check"),
+    ]
     date = models.DateField()
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()

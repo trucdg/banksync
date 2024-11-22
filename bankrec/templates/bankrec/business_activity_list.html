@@ -1,0 +1,12 @@
+{% extends "bankrec/base.html" %}
+
+{% block title %}Business Activities{% endblock %}
+
+{% block content %}
+<h1>Business Activities</h1>
+<ul class="list-group">
+    {% for activity in activities %}
+        <li class="list-group-item">{{ activity.code }}: {{ activity.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
