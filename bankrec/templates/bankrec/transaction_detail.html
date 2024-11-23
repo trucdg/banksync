@@ -1,0 +1,22 @@
+{% extends "bankrec/base.html" %}
+
+{% block title %}Transaction Detail{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Transaction Details</h1>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>{{ transaction.description }}</h3>
+            <p><strong>Amount:</strong> ${{ transaction.amount }}</p>
+            <p><strong>Payment Method:</strong> {{ transaction.get_payment_method_display }}</p>
+            <p><strong>Category:</strong> {{ transaction.category.name }}</p>
+            <p><strong>Account Last 4:</strong> ****{{ transaction.account_last4 }}</p>
+            <p><strong>Memo:</strong> {{ transaction.memo }}</p>
+            <p><strong>Payee:</strong> {{ transaction.payee }}</p>
+            <p><strong>Date:</strong> {{ transaction.date }}</p>
+            <a href="{% url 'business_detail' transaction.business.id %}" class="btn btn-outline-light">Back to Business</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

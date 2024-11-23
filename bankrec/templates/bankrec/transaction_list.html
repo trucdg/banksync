@@ -1,0 +1,25 @@
+{% extends "bankrec/base.html" %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Transactions</h1>
+    <p class="text-center lead">Browse through the financial transactions for the business.</p>
+    <ul class="list-group mt-4">
+        {% for transaction in transactions %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <h5>{{ transaction.description }}</h5>
+                    <p><strong>Amount:</strong> ${{ transaction.amount }}</p>
+                    <p><strong>Date:</strong> {{ transaction.date }}</p>
+                </div>
+                <a href="{% url 'transaction_detail' transaction.id %}" class="btn btn-outline-light btn-sm">View Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if transactions|length == 0 %}
+        <p class="text-center mt-4">No transactions found for this business.</p>
+    {% endif %}
+</div>
+{% endblock %}
