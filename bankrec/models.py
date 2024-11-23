@@ -94,9 +94,13 @@ class BusinessCategory(models.Model):
 class TransactionEntry(models.Model):
     """
     represents a financial transaction record
+    note:
+    - debit = money coming out
+    - credit = money coming in
+    - check = checks written
     """
 
-    PAYMENT_METHODS = [
+    TRANSACTION_TYPE = [
         ("credit", "Credit"),
         ("debit", "Debit"),
         ("check", "Check"),
@@ -109,7 +113,7 @@ class TransactionEntry(models.Model):
     business = models.ForeignKey(
         Business, related_name="transaction_entries", on_delete=models.CASCADE
     )
-    payment_method = models.CharField(max_length=10, choices=PAYMENT_METHODS)
+    transaction_type = models.CharField(max_length=10, choices=TRANSACTION_TYPE)
 
     # Additional fields for checks and debits
     check_number = models.CharField(max_length=20, blank=True, null=True)
@@ -117,4 +121,6 @@ class TransactionEntry(models.Model):
     payee = models.CharField(max_length=100, blank=True, null=True)  # For debits
 
     def __str__(self):
-        return f"{self.payment_method.capitalize()}: {self.amount}"
+        return (
+            f"{self.business.name}-{self.transaction_type.capitalize()}: {self.amount}"
+        )
