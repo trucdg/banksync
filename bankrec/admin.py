@@ -3,6 +3,7 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Person)
+admin.site.register(Business)
 admin.site.register(BusinessActivity)
 admin.site.register(Category)
 admin.site.register(BusinessActivityLink)
