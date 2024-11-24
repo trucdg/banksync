@@ -56,6 +56,7 @@ class Business(models.Model):
         Person, related_name="businesses", on_delete=models.CASCADE
     )
     industry = models.CharField(max_length=100)  # i.e: Restaurants, Constructions,etc.
+    address = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return f"Business: {self.name}, Owner: {self.person.first_name}"
