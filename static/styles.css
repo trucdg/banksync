@@ -1,48 +1,52 @@
 /* Global styles */
 body {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #12151d; /* Dark charcoal with subtle blue undertones */
+    color: #e0e4e9; /* Soft pastel blue-grey for general text */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+li {
+    list-style-type: none;
 }
 
 /* Navbar */
 .navbar-dark .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #e0e4e9;
 }
 
 .navbar-dark .navbar-brand:hover {
-    color: #f8f9fa;
+    color: #76c7f4; /* Lively light blue for positive accent */
 }
 
 .navbar-dark .nav-link {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(224, 228, 233, 0.85);
 }
 
 .navbar-dark .nav-link:hover {
-    color: #6671d9;
+    color: #76c7f4; 
 }
 
 /* Buttons */
 .btn-primary {
-    background-color: #1669bced;
+    background-color: #4b8e8d; 
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #005bb5;
+    background-color: #387e78; /* Slightly deeper teal */
 }
 
 .btn-secondary {
-    background-color: #343a40;
+    background-color: #3a3f53; /* Muted dark grey-blue */
     border: none;
 }
 
 .btn-secondary:hover {
-    background-color: #23272b;
+    background-color: #2e333e; /* Darker, more subdued grey-blue */
 }
 
 /* Home Page */
@@ -52,54 +56,54 @@ body {
 
 .display-4 {
     font-weight: 700;
-    color: #ffffff;
+    color: #f1f1f1; /* Light, neutral white for strong contrast */
 }
 
 .lead {
     font-size: 1.25rem;
-    color: #dcdcdc;
+    color: #b0b8c0; /* Light grey-blue for better legibility */
 }
 
-/* User List Page*/
+/* User List Page */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
 h1 {
-    color: #ffffff; /* Pastel blue */
+    color: #fff; /* Positive accent color */
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
 .list-group-item {
-    background-color: #1e1e30; 
-    border: 1px solid #0f3460;
+    background-color: #2e3a47;
+    border: 1px solid #4b5b6e; 
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1rem;
     transition: all 0.2s ease-in-out;
+    color: #f1f1f1; /* Light text for strong contrast */
 }
 
 .list-group-item:hover {
-    background-color: #16213e; /* Darker background on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-    box-shadow: 0px 4px 10px rgba(163, 196, 243, 0.2); /* Soft pastel glow */
+    background-color: #3b485b; /* Lighter grey-blue for hover */
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(140, 160, 184, 0.3); /* Soft blue glow for depth */
 }
 
 .person-link {
-    color: #eaeaea; 
+    color: #d8f4f9; /* Light blue for positive mood */
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease-in-out;
 }
 
 .person-link:hover {
-    color: #f4dc9f; 
-    text-decoration: none;
+    color: #2b53f3;
 }
 
 .text-center p {
-    color: #d1d1e9; 
+    color: #b0b8c0; /* Light grey-blue */
     font-style: italic;
 }
