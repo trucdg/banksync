@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.db import models
 
 
@@ -32,6 +34,50 @@ class BusinessActivity(models.Model):
 
     def __str__(self):
         return f"{self.code}: {self.description}"
+
+
+def load_business_activities():
+    """
+    Loads principal business activities codes .csv file into the database as initial data
+    The "business_codes.csv" file is an extract from data given by the IRS.
+    """
+    file_path = os.path.join(settings.BASE_DIR, "data_files", "business_codes.csv")
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            f.readline()  # discard headers
+
+            for line in f:
+                try:
+                    line = (
+                        line.strip()
+                    )  # Remove any trailing whitespace or newline characters
+                    fields = line.split(",")
+                    code = fields[0].strip()
+                    description = fields[1].strip()
+
+                    obj, created = BusinessActivity.objects.get_or_create(
+                        code=code,
+                        defaults={
+                            "description": description
+                        },  # Use defaults to avoid overwriting existing descriptions
+                    )
+                    if not created:
+                        # Update description if the code already exists
+                        obj.description = description
+                        obj.save()
+
+                except Exception as e:
+                    print(f"An error occurred while processing line: {line} - {e}")
+
+        print(
+            f"load_business_activities(): Created/Updated {BusinessActivity.objects.count()} BusinessActivity objects."
+        )
+
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 class Category(models.Model):
