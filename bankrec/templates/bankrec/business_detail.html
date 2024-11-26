@@ -1,0 +1,17 @@
+{% extends 'bankrec/base.html' %}
+
+{% block title %}Business Details{% endblock %}
+
+{% block content %}
+<div class="card bg-dark text-light">
+    <div class="card-body">
+        <h1 class="card-title">{{ business.name }}</h1>
+        <p class="card-text"><strong>Owner:</strong> {{ business.person.first_name }} {{ business.person.last_name }}</p>
+        <p class="card-text"><strong>Industry:</strong> {{ business.industry }}</p>
+        {% if business.address %}
+        <p class="card-text"><strong>Address:</strong> {{ business.address }}</p>
+        {% endif %}
+        <a href="{% url 'business_list' %}" class="btn btn-secondary mt-3">Back to Business List</a>
+    </div>
+</div>
+{% endblock %}
